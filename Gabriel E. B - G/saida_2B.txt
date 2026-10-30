@@ -1,0 +1,190 @@
+
+==================== Cenário 1 - chegadas lentas (barbeiro dorme) ====================
+cadeiras=3, clientes=5
+Barbeiro: sem clientes, vai dormir...
+Cliente 1: chegou à barbearia
+Cliente 1: sentou para esperar (esperando=1/3)
+Cliente 1: está sendo atendido
+Barbeiro: cortando cabelo de um cliente...
+Cliente 2: chegou à barbearia
+Cliente 2: sentou para esperar (esperando=1/3)
+Barbeiro: corte finalizado (atendidos=1)
+Barbeiro: cortando cabelo de um cliente...
+Cliente 2: está sendo atendido
+Barbeiro: corte finalizado (atendidos=2)
+Barbeiro: sem clientes, vai dormir...
+Cliente 3: chegou à barbearia
+Cliente 3: sentou para esperar (esperando=1/3)
+Cliente 3: está sendo atendido
+Barbeiro: cortando cabelo de um cliente...
+Barbeiro: corte finalizado (atendidos=3)
+Barbeiro: sem clientes, vai dormir...
+Cliente 4: chegou à barbearia
+Cliente 4: sentou para esperar (esperando=1/3)
+Cliente 4: está sendo atendido
+Barbeiro: cortando cabelo de um cliente...
+Barbeiro: corte finalizado (atendidos=4)
+Barbeiro: sem clientes, vai dormir...
+Cliente 5: chegou à barbearia
+Cliente 5: sentou para esperar (esperando=1/3)
+Barbeiro: cortando cabelo de um cliente...
+Cliente 5: está sendo atendido
+Barbeiro: corte finalizado (atendidos=5)
+Barbeiro: sem clientes, vai dormir...
+Barbeiro: fim do expediente.
+
+--- Validação: Cenário 1 - chegadas lentas (barbeiro dorme) ---
+Atendidos + recusados == clientes : 5 + 0 == 5  -> OK
+Máx. em espera <= cadeiras        : 1 <= 3  -> OK
+Máx. cortes simultâneos <= 1      : 1  -> OK
+Sala de espera vazia ao final     : waiting=0  -> OK
+Sem deadlock (todos terminaram)   : OK
+
+==================== Cenário 2 - rajada de clientes, 2 cadeiras ====================
+cadeiras=2, clientes=12
+Barbeiro: sem clientes, vai dormir...
+Cliente 1: chegou à barbearia
+Cliente 1: sentou para esperar (esperando=1/2)
+Barbeiro: cortando cabelo de um cliente...
+Cliente 1: está sendo atendido
+Cliente 2: chegou à barbearia
+Cliente 2: sentou para esperar (esperando=1/2)
+Cliente 3: chegou à barbearia
+Cliente 3: sentou para esperar (esperando=2/2)
+Cliente 4: chegou à barbearia
+Cliente 4: barbearia cheia, foi embora sem cortar
+Cliente 5: chegou à barbearia
+Cliente 5: barbearia cheia, foi embora sem cortar
+Cliente 6: chegou à barbearia
+Cliente 6: barbearia cheia, foi embora sem cortar
+Cliente 7: chegou à barbearia
+Cliente 7: barbearia cheia, foi embora sem cortar
+Cliente 8: chegou à barbearia
+Cliente 8: barbearia cheia, foi embora sem cortar
+Cliente 9: chegou à barbearia
+Cliente 9: barbearia cheia, foi embora sem cortar
+Barbeiro: corte finalizado (atendidos=1)
+Barbeiro: cortando cabelo de um cliente...
+Cliente 2: está sendo atendido
+Cliente 10: chegou à barbearia
+Cliente 10: sentou para esperar (esperando=2/2)
+Cliente 11: chegou à barbearia
+Cliente 11: barbearia cheia, foi embora sem cortar
+Cliente 12: chegou à barbearia
+Cliente 12: barbearia cheia, foi embora sem cortar
+Barbeiro: corte finalizado (atendidos=2)
+Barbeiro: cortando cabelo de um cliente...
+Cliente 3: está sendo atendido
+Barbeiro: corte finalizado (atendidos=3)
+Barbeiro: cortando cabelo de um cliente...
+Cliente 10: está sendo atendido
+Barbeiro: corte finalizado (atendidos=4)
+Barbeiro: sem clientes, vai dormir...
+Barbeiro: fim do expediente.
+
+--- Validação: Cenário 2 - rajada de clientes, 2 cadeiras ---
+Atendidos + recusados == clientes : 4 + 8 == 12  -> OK
+Máx. em espera <= cadeiras        : 2 <= 2  -> OK
+Máx. cortes simultâneos <= 1      : 1  -> OK
+Sala de espera vazia ao final     : waiting=0  -> OK
+Sem deadlock (todos terminaram)   : OK
+
+==================== Cenário 3 - estresse, 3 cadeiras, 30 clientes ====================
+cadeiras=3, clientes=30
+Barbeiro: sem clientes, vai dormir...
+Cliente 1: chegou à barbearia
+Cliente 1: sentou para esperar (esperando=1/3)
+Barbeiro: cortando cabelo de um cliente...
+Cliente 1: está sendo atendido
+Cliente 2: chegou à barbearia
+Cliente 2: sentou para esperar (esperando=1/3)
+Cliente 3: chegou à barbearia
+Cliente 3: sentou para esperar (esperando=2/3)
+Cliente 4: chegou à barbearia
+Cliente 4: sentou para esperar (esperando=3/3)
+Cliente 5: chegou à barbearia
+Cliente 5: barbearia cheia, foi embora sem cortar
+Cliente 6: chegou à barbearia
+Cliente 6: barbearia cheia, foi embora sem cortar
+Barbeiro: corte finalizado (atendidos=1)
+Barbeiro: cortando cabelo de um cliente...
+Cliente 2: está sendo atendido
+Cliente 7: chegou à barbearia
+Cliente 7: sentou para esperar (esperando=3/3)
+Cliente 8: chegou à barbearia
+Cliente 8: barbearia cheia, foi embora sem cortar
+Cliente 9: chegou à barbearia
+Cliente 9: barbearia cheia, foi embora sem cortar
+Cliente 10: chegou à barbearia
+Cliente 10: barbearia cheia, foi embora sem cortar
+Barbeiro: corte finalizado (atendidos=2)
+Barbeiro: cortando cabelo de um cliente...
+Cliente 3: está sendo atendido
+Cliente 11: chegou à barbearia
+Cliente 11: sentou para esperar (esperando=3/3)
+Cliente 12: chegou à barbearia
+Cliente 12: barbearia cheia, foi embora sem cortar
+Cliente 13: chegou à barbearia
+Cliente 13: barbearia cheia, foi embora sem cortar
+Cliente 14: chegou à barbearia
+Cliente 14: barbearia cheia, foi embora sem cortar
+Cliente 15: chegou à barbearia
+Cliente 15: barbearia cheia, foi embora sem cortar
+Barbeiro: corte finalizado (atendidos=3)
+Barbeiro: cortando cabelo de um cliente...
+Cliente 4: está sendo atendido
+Cliente 16: chegou à barbearia
+Cliente 16: sentou para esperar (esperando=3/3)
+Cliente 17: chegou à barbearia
+Cliente 17: barbearia cheia, foi embora sem cortar
+Cliente 18: chegou à barbearia
+Cliente 18: barbearia cheia, foi embora sem cortar
+Cliente 19: chegou à barbearia
+Cliente 19: barbearia cheia, foi embora sem cortar
+Cliente 20: chegou à barbearia
+Cliente 20: barbearia cheia, foi embora sem cortar
+Cliente 21: chegou à barbearia
+Cliente 21: barbearia cheia, foi embora sem cortar
+Cliente 22: chegou à barbearia
+Cliente 22: barbearia cheia, foi embora sem cortar
+Cliente 23: chegou à barbearia
+Cliente 23: barbearia cheia, foi embora sem cortar
+Cliente 24: chegou à barbearia
+Cliente 24: barbearia cheia, foi embora sem cortar
+Cliente 25: chegou à barbearia
+Cliente 25: barbearia cheia, foi embora sem cortar
+Cliente 26: chegou à barbearia
+Cliente 26: barbearia cheia, foi embora sem cortar
+Cliente 27: chegou à barbearia
+Cliente 27: barbearia cheia, foi embora sem cortar
+Barbeiro: corte finalizado (atendidos=4)
+Barbeiro: cortando cabelo de um cliente...
+Cliente 7: está sendo atendido
+Cliente 28: chegou à barbearia
+Cliente 28: sentou para esperar (esperando=3/3)
+Cliente 29: chegou à barbearia
+Cliente 29: barbearia cheia, foi embora sem cortar
+Cliente 30: chegou à barbearia
+Cliente 30: barbearia cheia, foi embora sem cortar
+Barbeiro: corte finalizado (atendidos=5)
+Barbeiro: cortando cabelo de um cliente...
+Cliente 11: está sendo atendido
+Barbeiro: corte finalizado (atendidos=6)
+Barbeiro: cortando cabelo de um cliente...
+Cliente 16: está sendo atendido
+Barbeiro: corte finalizado (atendidos=7)
+Barbeiro: cortando cabelo de um cliente...
+Cliente 28: está sendo atendido
+Barbeiro: corte finalizado (atendidos=8)
+Barbeiro: sem clientes, vai dormir...
+Barbeiro: fim do expediente.
+
+--- Validação: Cenário 3 - estresse, 3 cadeiras, 30 clientes ---
+Atendidos + recusados == clientes : 8 + 22 == 30  -> OK
+Máx. em espera <= cadeiras        : 3 <= 3  -> OK
+Máx. cortes simultâneos <= 1      : 1  -> OK
+Sala de espera vazia ao final     : waiting=0  -> OK
+Sem deadlock (todos terminaram)   : OK
+
+==================== RESULTADO FINAL ====================
+TODOS OS TESTES PASSARAM
